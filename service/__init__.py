@@ -7,6 +7,8 @@ and SQL database
 import sys
 from flask import Flask
 from service import config
+#from service inport talisman
+from flask_cors import CORS
 from service.common import log_handlers
 from flask_talisman import Talisman
 from service import talisman
