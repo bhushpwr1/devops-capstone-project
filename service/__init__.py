@@ -7,7 +7,11 @@ and SQL database
 import sys
 from flask import Flask
 from service import config
+#from service inport talisman
+from flask_cors import CORS
 from service.common import log_handlers
+from flask_talisman import Talisman
+from service import talisman
 
 # Create Flask application
 app = Flask(__name__)
@@ -35,3 +39,11 @@ except Exception as error:  # pylint: disable=broad-except
     sys.exit(4)
 
 app.logger.info("Service initialized!")
+
+talisman = Talisman(app)
+
+@classmethod
+def setUpClass(cls):
+    """Run once before all tests"""
+    { other lines of code here ... }
+    talisman.force_https = False
